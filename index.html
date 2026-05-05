@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>Alex Rivera · Dev Profile</title>
+  <title>Sujan Pandey · Full Stack Developer</title>
   <style>
     * {
       margin: 0;
@@ -16,7 +16,8 @@
       --surface: #ffffff;
       --text: #0f172a;
       --text-muted: #475569;
-      --accent: #3b82f6;
+      --accent: #2563eb;
+      --accent-light: #3b82f6;
       --border: #e2e8f0;
       --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.02);
     }
@@ -25,39 +26,41 @@
       --bg: #0f172a;
       --surface: #1e293b;
       --text: #f1f5f9;
-      --text-muted: #94a3b8;
+      --text-muted: #cbd5e1;
       --accent: #60a5fa;
+      --accent-light: #93c5fd;
       --border: #334155;
     }
 
     body {
       background: var(--bg);
       color: var(--text);
-      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
       line-height: 1.5;
       padding: 2rem 1rem;
       transition: background 0.2s, color 0.2s;
     }
 
     .container {
-      max-width: 880px;
+      max-width: 1000px;
       margin: 0 auto;
     }
 
-    /* card */
+    /* main card */
     .profile-card {
       background: var(--surface);
       border-radius: 2rem;
       padding: 2rem;
       box-shadow: var(--shadow);
       border: 1px solid var(--border);
-      transition: background 0.2s, border 0.2s;
+      transition: all 0.2s;
     }
 
+    /* avatar section */
     .avatar {
-      width: 120px;
-      height: 120px;
-      background: linear-gradient(135deg, #3b82f6, #a855f7);
+      width: 110px;
+      height: 110px;
+      background: linear-gradient(135deg, var(--accent), #7c3aed);
       border-radius: 50%;
       display: flex;
       align-items: center;
@@ -66,13 +69,20 @@
       font-weight: 600;
       color: white;
       margin-bottom: 1.5rem;
-      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    }
+    /* optional image later: replace background with image */
+    .avatar-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
     }
 
     h1 {
       font-size: 2rem;
       letter-spacing: -0.02em;
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.25rem;
     }
 
     .tagline {
@@ -84,15 +94,15 @@
 
     .bio {
       color: var(--text-muted);
-      margin-bottom: 1.5rem;
+      margin-bottom: 1.8rem;
       border-left: 3px solid var(--accent);
       padding-left: 1rem;
     }
 
+    /* section headers */
     .section {
       margin: 2rem 0 1.5rem;
     }
-
     .section h2 {
       font-size: 1.3rem;
       font-weight: 600;
@@ -100,31 +110,33 @@
       display: flex;
       align-items: center;
       gap: 0.5rem;
+      border-bottom: 2px solid var(--border);
+      padding-bottom: 0.4rem;
     }
 
+    /* skills chips */
     .skills {
       display: flex;
       flex-wrap: wrap;
       gap: 0.6rem;
       list-style: none;
     }
-
     .skills li {
       background: var(--bg);
       padding: 0.3rem 1rem;
       border-radius: 40px;
       font-size: 0.9rem;
       border: 1px solid var(--border);
-      color: var(--text);
+      transition: all 0.2s;
     }
 
+    /* social & link icons */
     .link-icons {
       display: flex;
-      gap: 1.2rem;
       flex-wrap: wrap;
-      margin: 1.5rem 0 1rem;
+      gap: 1.2rem;
+      margin: 1rem 0;
     }
-
     .link-icons a {
       text-decoration: none;
       color: var(--text-muted);
@@ -134,11 +146,117 @@
       gap: 0.4rem;
       transition: color 0.2s;
     }
-
     .link-icons a:hover {
       color: var(--accent);
     }
 
+    /* project gallery cards */
+    .project-gallery {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      margin: 1rem 0;
+    }
+    .project-card {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 1.2rem;
+      padding: 1.2rem;
+      flex: 1 1 240px;
+      transition: transform 0.1s ease;
+    }
+    .project-card h3 {
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+    }
+    .project-card p {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      margin-bottom: 0.8rem;
+    }
+    .project-card a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.9rem;
+    }
+    .project-card a:hover {
+      text-decoration: underline;
+    }
+
+    /* contact form */
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    .contact-form input, .contact-form textarea {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      padding: 0.75rem 1rem;
+      border-radius: 1rem;
+      color: var(--text);
+      font-family: inherit;
+      font-size: 0.9rem;
+      outline: none;
+      transition: 0.2s;
+    }
+    .contact-form input:focus, .contact-form textarea:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.2);
+    }
+    .contact-form button {
+      background: var(--accent);
+      color: white;
+      border: none;
+      padding: 0.7rem;
+      border-radius: 2rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.2s;
+      width: fit-content;
+      padding: 0.7rem 1.5rem;
+    }
+    .contact-form button:hover {
+      background: var(--accent-light);
+      transform: scale(0.98);
+    }
+    .form-message {
+      font-size: 0.85rem;
+      color: #16a34a;
+    }
+
+    /* resume & extra */
+    .resume-btn {
+      display: inline-block;
+      background: transparent;
+      border: 1.5px solid var(--accent);
+      color: var(--accent);
+      padding: 0.5rem 1.2rem;
+      border-radius: 2rem;
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.2s;
+      margin-top: 0.5rem;
+    }
+    .resume-btn:hover {
+      background: var(--accent);
+      color: white;
+    }
+
+    .datetime {
+      background: var(--bg);
+      border-radius: 1.5rem;
+      padding: 0.6rem 1rem;
+      text-align: center;
+      font-size: 0.9rem;
+      font-weight: 500;
+      margin-top: 1.5rem;
+      border: 1px solid var(--border);
+    }
+
+    /* theme toggle */
     .theme-toggle {
       position: fixed;
       bottom: 1.5rem;
@@ -146,13 +264,14 @@
       background: var(--surface);
       border: 1px solid var(--border);
       border-radius: 60px;
-      padding: 0.6rem 1rem;
+      padding: 0.6rem 1.2rem;
       font-size: 0.9rem;
       cursor: pointer;
       backdrop-filter: blur(8px);
       box-shadow: var(--shadow);
       color: var(--text);
       font-weight: 500;
+      z-index: 100;
     }
 
     footer {
@@ -162,81 +281,195 @@
       color: var(--text-muted);
     }
 
-    @media (max-width: 600px) {
-      .profile-card {
-        padding: 1.5rem;
-      }
-      .avatar {
-        width: 90px;
-        height: 90px;
-        font-size: 2.2rem;
-      }
+    @media (max-width: 680px) {
+      .profile-card { padding: 1.5rem; }
+      .avatar { width: 85px; height: 85px; font-size: 2.2rem; }
+      .project-gallery { flex-direction: column; }
     }
   </style>
 </head>
 <body>
 <div class="container">
   <div class="profile-card">
-    <div class="avatar">✨</div>
-    <h1>Alex Rivera</h1>
-    <div class="tagline">Full‑stack developer & creative coder</div>
+    <!-- avatar with placeholder (emoji / initials) — you can replace with image later -->
+    <div class="avatar" id="avatarEl">
+      🧑‍💻
+    </div>
+    <!-- leave space for image later: uncomment below and hide avatarEl if needed -->
+    <!-- <img class="avatar-img" src="your-image-url.jpg" alt="Sujan Pandey" style="display:none"> -->
+
+    <h1>Sujan Pandey</h1>
+    <div class="tagline" id="typingText">Full Stack Developer</div>
     <div class="bio">
-      Building fast, human‑friendly web experiences. Passionate about minimal design, 
-      open source, and turning ideas into interactive products.
+      Passionate full‑stack developer who loves building clean, modern web applications. 
+      I turn ideas into fast, user‑friendly experiences with PHP, JS, and Bootstrap.
+      Always curious, always coding.
     </div>
 
+    <!-- Skills -->
     <div class="section">
-      <h2>🛠️ Tech & tools</h2>
+      <h2>⚙️ Tech Stack</h2>
       <ul class="skills">
-        <li>JavaScript/TS</li><li>React</li><li>Node.js</li><li>Python</li>
-        <li>Tailwind</li><li>GitHub Actions</li><li>Vue</li><li>Figma</li>
+        <li>HTML5 / CSS3</li><li>JavaScript (ES6+)</li><li>PHP</li>
+        <li>Bootstrap 5</li><li>MySQL</li><li>Git & GitHub</li>
+        <li>jQuery</li><li>REST APIs</li>
       </ul>
     </div>
 
+    <!-- Social links -->
     <div class="section">
-      <h2>🔗 Connect</h2>
+      <h2>🔗 Connect with me</h2>
       <div class="link-icons">
-        <a href="#">🐙 GitHub</a>
-        <a href="#">💼 LinkedIn</a>
-        <a href="#">🐦 X</a>
-        <a href="#">📧 hello@alex.dev</a>
+        <a href="https://github.com/sujanpandey17" target="_blank">🐙 GitHub</a>
+        <a href="https://www.linkedin.com/in/sujan-pandey-497b79381/" target="_blank">💼 LinkedIn</a>
+        <a href="https://twitter.com/imsujan19" target="_blank">🐦 X (Twitter)</a>
+        <a href="mailto:sujan2001pandey@gmail.com">📧 Email</a>
+        <a href="https://sujanpandey.blog/" target="_blank">🌐 Blog</a>
       </div>
     </div>
 
+    <!-- Projects gallery (2-3 cards) -->
     <div class="section">
-      <h2>📌 Recent project</h2>
-      <p style="color: var(--text-muted); margin-bottom: 0.5rem;">
-        <strong>weblite.studio</strong> – a sub‑20KB personal site generator. 
-        <span style="color: var(--accent);">→ live demo</span>
-      </p>
+      <h2>📌 Featured projects</h2>
+      <div class="project-gallery">
+        <div class="project-card">
+          <h3>📖 NovelHub</h3>
+          <p>Full‑stack book community platform using PHP, MySQL, Bootstrap 5, JS. Users can share reviews and discover novels.</p>
+          <a href="https://github.com/sujanpandey17/Novelhub-6SemFinal" target="_blank">🔗 Repository →</a>
+        </div>
+        <div class="project-card">
+          <h3>⚡ Portfolio CMS</h3>
+          <p>Dynamic admin panel to manage projects & blogs (PHP + MySQL). Custom dashboard with secure login.</p>
+          <a href="#">🔗 Demo (soon)</a>
+        </div>
+        <div class="project-card">
+          <h3>✅ TaskFlow</h3>
+          <p>Minimalist task manager with local storage & dark mode. Built with vanilla JS and Tailwind.</p>
+          <a href="#">🔗 Live preview</a>
+        </div>
+      </div>
     </div>
+
+    <!-- Contact form (frontend + Formspree ready) -->
+    <div class="section">
+      <h2>✉️ Send a message</h2>
+      <form class="contact-form" id="contactForm" action="https://formspree.io/f/xjvqzkkj" method="POST">
+        <input type="text" name="name" placeholder="Your name" required>
+        <input type="email" name="email" placeholder="Your email" required>
+        <textarea name="message" rows="3" placeholder="What would you like to say?" required></textarea>
+        <button type="submit">Send message ✨</button>
+        <div class="form-message" id="formFeedback"></div>
+      </form>
+      <p style="font-size:0.75rem; margin-top:0.5rem; opacity:0.7;">* Demo form: uses Formspree. Replace action with your own endpoint if needed.</p>
+    </div>
+
+    <!-- Resume download button -->
+    <div style="margin: 1rem 0 0.5rem;">
+      <a href="#" class="resume-btn" id="resumeBtn">📄 Download Resume (PDF)</a>
+      <p style="font-size:0.7rem; margin-top:0.3rem;">(Placeholder — add your actual resume file later)</p>
+    </div>
+
+    <!-- Live clock & date -->
+    <div class="datetime" id="liveDateTime"></div>
   </div>
   <footer>
-    ✨ Designed for speed & clarity • Dark/light mode built‑in
+    ✨ Built with HTML/CSS/JS • Light/Dark toggle • Fully responsive
   </footer>
 </div>
 
 <button class="theme-toggle" id="themeToggle">🌙 Dark mode</button>
 
 <script>
-  (function() {
-    const toggle = document.getElementById('themeToggle');
-    const html = document.documentElement;
-    const isDark = localStorage.getItem('theme') === 'dark';
-    if (isDark) {
-      html.classList.add('dark');
-      toggle.textContent = '☀️ Light mode';
+  // ==================== 1. Typing animation ====================
+  const phrases = ["Full Stack Developer", "PHP & JS Enthusiast", "Bootstrap Lover", "Creative Problem Solver"];
+  let idx = 0, charIdx = 0, isDeleting = false;
+  const typingSpan = document.getElementById("typingText");
+  function typeEffect() {
+    const current = phrases[idx];
+    if (isDeleting) {
+      typingSpan.textContent = current.substring(0, charIdx-1);
+      charIdx--;
     } else {
-      html.classList.remove('dark');
-      toggle.textContent = '🌙 Dark mode';
+      typingSpan.textContent = current.substring(0, charIdx+1);
+      charIdx++;
     }
+    if (!isDeleting && charIdx === current.length) {
+      isDeleting = true;
+      setTimeout(typeEffect, 2000);
+      return;
+    }
+    if (isDeleting && charIdx === 0) {
+      isDeleting = false;
+      idx = (idx+1) % phrases.length;
+      setTimeout(typeEffect, 300);
+      return;
+    }
+    setTimeout(typeEffect, isDeleting ? 50 : 100);
+  }
+  typeEffect();
 
-    toggle.addEventListener('click', () => {
-      const nowDark = html.classList.toggle('dark');
-      localStorage.setItem('theme', nowDark ? 'dark' : 'light');
-      toggle.textContent = nowDark ? '☀️ Light mode' : '🌙 Dark mode';
-    });
-  })();
+  // ==================== 2. Live Date & Time (Nepal / local) ====================
+  function updateDateTime() {
+    const now = new Date();
+    const options = { timeZone: "Asia/Kathmandu", weekday: 'short', year: 'numeric', month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit' };
+    const formatted = new Intl.DateTimeFormat('en-US', options).format(now);
+    document.getElementById("liveDateTime").innerHTML = `📅 ${formatted} (NPT)`;
+  }
+  updateDateTime();
+  setInterval(updateDateTime, 1000);
+
+  // ==================== 3. Dark/Light mode toggle ====================
+  const toggleBtn = document.getElementById("themeToggle");
+  const rootHtml = document.documentElement;
+  const storedTheme = localStorage.getItem("theme");
+  if (storedTheme === "dark") {
+    rootHtml.classList.add("dark");
+    toggleBtn.textContent = "☀️ Light mode";
+  } else {
+    rootHtml.classList.remove("dark");
+    toggleBtn.textContent = "🌙 Dark mode";
+  }
+  toggleBtn.addEventListener("click", () => {
+    const isDark = rootHtml.classList.toggle("dark");
+    localStorage.setItem("theme", isDark ? "dark" : "light");
+    toggleBtn.textContent = isDark ? "☀️ Light mode" : "🌙 Dark mode";
+  });
+
+  // ==================== 4. Contact form (frontend submit with fetch fallback) ====================
+  const form = document.getElementById("contactForm");
+  const feedback = document.getElementById("formFeedback");
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    feedback.textContent = "Sending...";
+    const formData = new FormData(form);
+    try {
+      const response = await fetch(form.action, {
+        method: "POST",
+        body: formData,
+        headers: { 'Accept': 'application/json' }
+      });
+      if (response.ok) {
+        feedback.innerHTML = "✅ Message sent successfully! I'll get back soon.";
+        form.reset();
+        setTimeout(() => feedback.innerHTML = "", 4000);
+      } else {
+        feedback.innerHTML = "⚠️ Oops! Something went wrong. Try again later.";
+      }
+    } catch (error) {
+      feedback.innerHTML = "⚠️ Network error. Please email me directly.";
+    }
+  });
+
+  // ==================== 5. Resume PDF button (placeholder) ====================
+  const resumeBtn = document.getElementById("resumeBtn");
+  resumeBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+    alert("📄 Resume PDF will be added soon. For now, feel free to email me.");
+    // You can replace the alert with actual PDF link: e.g. window.open("resume.pdf");
+  });
+
+  // ==================== 6. Avatar image placeholder note (for later use) ====================
+  console.log("💡 To replace avatar with image: add <img class='avatar-img' src='your-photo.jpg'> and hide the .avatar div");
 </script>
 </body>
 </html>
